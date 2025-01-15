@@ -46,18 +46,6 @@ jobs:
         with:
           submodules: true
           repository: nasa/cFS
-
-      - name: Submodule update
-        run: |
-          git submodule init
-          git submodule update
-
-      - name: Checkout cFE
-        uses: actions/checkout@v4
-        with:
-          path: cfe
-          repository: arielswalker/cFE
-          ref: fix-2628-unknown-type-name
           
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -68,6 +56,10 @@ jobs:
         run: |
           cp ./cfe/cmake/Makefile.sample Makefile
           cp -r ./cfe/cmake/sample_defs sample_defs
+
+      - name: Edit cFE
+        run: |
+          sed -i '/#include "cfe_tbl_fcncodes.h"/a #include "cfe_tbl_extern_typedefs.h"' cfe/modules/tbl/config/default_cfe_tbl_msgdefs.h
 
       - name: Add Repo To Build
         run: |
