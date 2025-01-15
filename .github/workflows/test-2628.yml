@@ -50,7 +50,7 @@ jobs:
       - name: Checkout cFE
         uses: actions/checkout@v4
         with:
-          path: cFE
+          path: cfe
           repository: arielswalker/cFE
           ref: fix-2628-unknown-type-name
           
