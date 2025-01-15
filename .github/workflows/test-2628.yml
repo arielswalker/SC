@@ -47,6 +47,11 @@ jobs:
           submodules: true
           repository: nasa/cFS
 
+      - name: Submodule update
+        run: |
+          git submodule init
+          git submodule update
+
       - name: Checkout cFE
         uses: actions/checkout@v4
         with:
