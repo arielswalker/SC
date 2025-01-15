@@ -38,8 +38,8 @@ jobs:
       - name: Set up environment variables
         # Apps typically use lowercase targets and uppercase names, this logic is fragile but works
         run: |
-          echo "APP_UPPER=$(echo ${{ inputs.SC }} | sed 's/[a-z]/\U&/g')" >> $GITHUB_ENV
-          echo "APP_LOWER=$(echo ${{ inputs.SC }} | sed 's/[A-Z]/\L&/g')" >> $GITHUB_ENV
+          echo "APP_UPPER=$(echo SC | sed 's/[a-z]/\U&/g')" >> $GITHUB_ENV
+          echo "APP_LOWER=$(echo SC | sed 's/[A-Z]/\L&/g')" >> $GITHUB_ENV
 
       - name: Checkout Bundle Main
         uses: actions/checkout@v4
